@@ -45,8 +45,50 @@ public class MenuItem {
     public String getCategory() { return this.category; }
     public void setCategory(String category) { this.description = category; }
 
-    public Boolean getIsNew() { return this.isNew; }
+    public Boolean isNew() { return this.isNew; }
     public void getIsNew(Boolean isNew) { this.isNew = isNew; }
+
+    //Other methods
+    @Override
+    public String toString() {
+        //printOutMenuItems()
+        String returnString = "";
+
+        //printItemName
+        returnString += "Item Name: " + this.name + "\n";
+
+        //print ItemDescription
+        returnString += "Item Description: " + this.description + "\n";
+
+        //print ItemPrice
+        returnString += "Item Price: " + this.price + "\n";
+
+        //print itemCategory
+        returnString += "Item Category: " + this.category + "\n";
+
+        //print itemIsNew
+        returnString += "Is this item new?: " + this.isNew + "\n";
+
+        return returnString;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        //isEqual (menuItem)
+            //if menuItem is not a menuItem
+        if (!(obj instanceof MenuItem)) {
+            return false;
+        }
+
+        MenuItem menuItem = (MenuItem) obj; //cast an object into menuItem
+        if (menuItem.name.equals(this.name)
+                && menuItem.description.equals(this.description)
+                && menuItem.price.equals(this.price)
+                && menuItem.category.equals(this.category))
+            return true;
+        else return false;
+    }
 }
 
 //Create restaurant.Menu
